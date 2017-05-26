@@ -17,12 +17,17 @@
     ]
   },
   "scripts": {
+    "cd": "echo %cd%",
     "postinstall": "install-app-deps",
+    "rebuild-sqlite3-win-x64": "cd node_modules\\sqlite3 && npm run prepublish && node-gyp configure --module_name=node_sqlite3 --module_path=..\\lib\\binding\\electron-v1.6-win32-x64 && node-gyp rebuild --target=1.6.10 --arch=x64 --target_platform=win32 --dist-url=https://atom.io/download/atom-shell --module_name=node_sqlite3 --module_path=..\\lib/binding\\electron-v1.6-win32-x64",
     "start": "electron .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "release": "build"
   },
   "dependencies": {
+    "bluebird": "^3.5.0",
+    "electron-rebuild": "^1.5.11",
+    "nan": "^2.6.2",
     "sqlite3": "^3.1.8"
   },
   "devDependencies": {
